@@ -3,7 +3,7 @@
 An interactive tool that generates UML class diagrams using AI-extracted data and allows users to refine the diagram before exporting.
 
 ## Live Demo
-[Open the App](https://your-streamlit-link.streamlit.app)
+[Open the App](https://ai-uml-generator-6hkzwleht9zscvpavkbvsx.streamlit.app/)
 
 ---
 
