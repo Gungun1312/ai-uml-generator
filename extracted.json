@@ -1,0 +1,38 @@
+{
+  "classes": [
+    {
+      "name": "User",
+      "attributes": ["id", "name", "email", "password"],
+      "methods": ["login()", "logout()", "register()"],
+      "confidence": 0.95
+    },
+    {
+      "name": "Order",
+      "attributes": ["orderId", "date", "amount"],
+      "methods": ["createOrder()", "cancelOrder()"],
+      "confidence": 0.90
+    },
+    {
+      "name": "Product",
+      "attributes": ["productId", "name", "price"],
+      "methods": ["updatePrice()", "checkStock()"],
+      "confidence": 0.88
+    }
+  ],
+  "relations": [
+    {
+      "source": "User",
+      "target": "Order",
+      "type": "association",
+      "label": "places",
+      "confidence": 0.92
+    },
+    {
+      "source": "Order",
+      "target": "Product",
+      "type": "aggregation",
+      "label": "contains",
+      "confidence": 0.89
+    }
+  ]
+}
