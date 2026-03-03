@@ -5,6 +5,58 @@ from src.render import plantuml_url
 
 st.title("AI-Based UML Generator (Human-in-the-loop)")
 
+import json
+
+# ---------------- SAMPLE INPUT DOWNLOAD ----------------
+
+sample_data = {
+  "classes": [
+    {
+      "name": "Patient",
+      "attributes": ["patientId", "name", "age", "medicalHistory"],
+      "methods": ["bookAppointment()", "viewReport()"],
+      "confidence": 0.96
+    },
+    {
+      "name": "Doctor",
+      "attributes": ["doctorId", "name", "specialization"],
+      "methods": ["diagnose()", "prescribeMedicine()"],
+      "confidence": 0.93
+    },
+    {
+      "name": "Appointment",
+      "attributes": ["appointmentId", "date", "time", "status"],
+      "methods": ["schedule()", "cancel()"],
+      "confidence": 0.90
+    }
+  ],
+  "relations": [
+    {
+      "source": "Patient",
+      "target": "Appointment",
+      "type": "association",
+      "label": "books",
+      "confidence": 0.95
+    },
+    {
+      "source": "Doctor",
+      "target": "Appointment",
+      "type": "association",
+      "label": "attends",
+      "confidence": 0.92
+    }
+  ]
+}
+
+sample_json = json.dumps(sample_data, indent=4)
+
+st.download_button(
+    label="📥 Download Sample extracted.json",
+    data=sample_json,
+    file_name="extracted.json",
+    mime="application/json"
+)
+
 uploaded = st.file_uploader(
     "Upload extracted.json (from pipeline)", type=["json"]
 )
