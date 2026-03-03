@@ -51,7 +51,7 @@ sample_data = {
 sample_json = json.dumps(sample_data, indent=4)
 
 st.download_button(
-    label="📥 Download Sample extracted.json",
+    label="📥 Download Sample json file for upload",
     data=sample_json,
     file_name="extracted.json",
     mime="application/json"
